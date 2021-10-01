@@ -33,6 +33,15 @@ async function main() {
   const data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
   const data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
 
+  var minutes = 5, the_interval = minutes * 60 * 1000;
+  setInterval(function() {
+    console.log("MINUTE PASSED");
+    data_johnjay = await streamToString(downloadBlockBlobResponse_johnjay.readableStreamBody);
+    data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
+    data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
+  }, 60*1000);
+
+
   
 
   app.get('/app/johnjay_graph.html', function(req, res) {
@@ -49,21 +58,6 @@ async function main() {
   })
   app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '/components/index.html'));
-    // var htmlElt = document.createElement('html')
-    // htmlElt.insertAdjacentHTML('beforeend', headerElts)
-    // var headerElts = 
-    // '<head>'
-    //   '<meta charset="UTF-8">'
-    //   '<meta http-equiv="X-UA-Compatible" content="IE=edge">'
-    //   '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
-    //   '<title>Lions CU</title>'
-    // '</head>'
-    // var bodyElt = document.createElement('body')
-    // var h1Elt = document.createElement('h1')
-    // h1Elt.insertAdjacentText('beforeend', 'charlie')
-    // bodyElt.appendChild(h1Elt)
-    // htmlElt.appendChild(bodyElt)
-    // res.send(doc)
   });
 
   app.listen(port);
