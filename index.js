@@ -5,7 +5,9 @@ const fs = require('fs')
 
 const app = express();
 const port = process.env.PORT || 8080;
-
+var data_johnjay;
+var data_jj;
+var data_ferris;
 async function main() {
   require('dotenv').config()
   AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING
@@ -29,9 +31,9 @@ async function main() {
   const downloadBlockBlobResponse_ferris = await blockBlobClient_ferris.download(0);
 
   // console.log('\nDownloaded blob content...');
-  var data_johnjay = await streamToString(downloadBlockBlobResponse_johnjay.readableStreamBody);
-  var data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
-  var data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
+  data_johnjay = await streamToString(downloadBlockBlobResponse_johnjay.readableStreamBody);
+  data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
+  data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
 
   setInterval(async function() {
     console.log("generating graphs");
