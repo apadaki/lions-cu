@@ -25,7 +25,6 @@ def generate_graphs(infilename, outfilename_base):
         timestr = dt_local.strftime(time_fmt)
 
         times.append(timestr)
-        print(timestr)
         johnjay.append(int(data[key]['155']['client_count']))
         jj.append(int(data[key]['192']['client_count']))
         ferris.append(int(data[key]['103']['client_count']))
@@ -40,7 +39,6 @@ def generate_graphs(infilename, outfilename_base):
     fig_johnjay = px.line(df_johnjay, x="Time", y="John Jay", title="Crowd Patterns - John Jay Dining Hall") 
     fig_jj = px.line(df_jj, x="Time", y="JJ", title="Crowd Patterns - JJ's Place") 
     fig_ferris = px.line(df_ferris, x="Time", y="Ferris", title="Crowd Patterns - Ferris Booth Commons") 
-    print(outfilename_base)
     fig_johnjay.write_html('{}_{}'.format('johnjay', outfilename_base))
     fig_jj.write_html('{}_{}'.format('jj', outfilename_base))    
     fig_ferris.write_html('{}_{}'.format('ferris', outfilename_base))

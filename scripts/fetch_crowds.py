@@ -25,7 +25,6 @@ try:
     upload_file_path = data_fname
     clear_file(upload_file_path)
 
-    print('AAAAAA')
     # create blob client
     blob_client_data = blob_service_client.get_blob_client(container=container_name, blob=data_fname)
     blob_client_johnjay = blob_service_client.get_blob_client(container=container_name, blob='{}_{}'.format('johnjay', graph_fname))
@@ -33,15 +32,12 @@ try:
     blob_client_ferris = blob_service_client.get_blob_client(container=container_name, blob='{}_{}'.format('ferris', graph_fname))
 
 
-    print(blob_client_data)
 
-    # print("\nUploading to Azure Storage as blob:\n\t" + local_fname)
     times = {}
 
     while True:
         # download from Azure
         download_file_path = upload_file_path
-        # print("\nDownloading blob to \n\t" + download_file_path)
         with open(download_file_path, "wb") as download_file:
             download_file.write(blob_client_data.download_blob().readall())   
 
@@ -59,7 +55,6 @@ try:
         client_json = requests.get(dining_url).json()
 
         times[timestr] = client_json['data']
-        # print('wrote entry at time {} to {}'.format(timestr, upload_file_path))
         
         # write to local json
         with open(upload_file_path, "w") as outfile:
