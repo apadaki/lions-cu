@@ -29,9 +29,9 @@ async function main() {
   const downloadBlockBlobResponse_ferris = await blockBlobClient_ferris.download(0);
 
   // console.log('\nDownloaded blob content...');
-  const data_johnjay = await streamToString(downloadBlockBlobResponse_johnjay.readableStreamBody);
-  const data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
-  const data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
+  var data_johnjay = await streamToString(downloadBlockBlobResponse_johnjay.readableStreamBody);
+  var data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
+  var data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
 
   setInterval(async function() {
     console.log("generating graphs");
