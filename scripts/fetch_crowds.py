@@ -62,6 +62,7 @@ try:
         
         generate_graphs(data_fname, graph_fname)
         with open('{}_{}'.format('johnjay', graph_fname), 'rb') as data:
+            print("JOHNJAY")
             blob_client_johnjay.upload_blob(data, overwrite=True)
         with open('{}_{}'.format('jj', graph_fname), 'rb') as data:
             blob_client_jj.upload_blob(data, overwrite=True)
