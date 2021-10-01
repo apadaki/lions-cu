@@ -33,13 +33,12 @@ async function main() {
   const data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
   const data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
 
-  var minutes = 5, the_interval = minutes * 60 * 1000;
   setInterval(async function() {
-    console.log("MINUTE PASSED");
+    console.log("generating graphs");
     data_johnjay = await streamToString(downloadBlockBlobResponse_johnjay.readableStreamBody);
     data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
     data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
-  }, 60*1000);
+  }, 15*60*1000);
 
 
   
