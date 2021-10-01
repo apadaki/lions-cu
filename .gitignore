@@ -1,0 +1,6 @@
+some_data*
+data.json
+node_modules
+.env
+data/
+.DS_Store

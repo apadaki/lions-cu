@@ -1,0 +1,26 @@
+{
+  "name": "lions",
+  "version": "1.0.0",
+  "description": "a web app for monitoring capacity of Columbia buildings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apadaki/lions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apadaki/lions/issues"
+  },
+  "homepage": "https://github.com/apadaki/lions#readme",
+  "dependencies": {
+    "@azure/storage-blob": "^12.0.0",
+    "@types/dotenv": "^4.0.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.17.1"
+  }
+}
