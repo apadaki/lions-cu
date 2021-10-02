@@ -5,9 +5,7 @@ const fs = require('fs')
 
 const app = express();
 const port = process.env.PORT || 8080;
-var data_johnjay;
-var data_jj;
-var data_ferris;
+
 async function main() {
   require('dotenv').config()
   AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING
@@ -25,17 +23,19 @@ async function main() {
   const blockBlobClient_jj = containerClient.getBlockBlobClient('jj_graph.html');
   const blockBlobClient_ferris = containerClient.getBlockBlobClient('ferris_graph.html');
   
-
-  const downloadBlockBlobResponse_johnjay = await blockBlobClient_johnjay.download(0);
-  const downloadBlockBlobResponse_jj = await blockBlobClient_jj.download(0);
-  const downloadBlockBlobResponse_ferris = await blockBlobClient_ferris.download(0);
+  var downloadBlockBlobResponse_johnjay = await blockBlobClient_johnjay.download(0);
+  var downloadBlockBlobResponse_jj = await blockBlobClient_jj.download(0);
+  var downloadBlockBlobResponse_ferris = await blockBlobClient_ferris.download(0);
 
   // console.log('\nDownloaded blob content...');
-  data_johnjay = await streamToString(downloadBlockBlobResponse_johnjay.readableStreamBody);
-  data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
-  data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
+  var data_johnjay = await streamToString(downloadBlockBlobResponse_johnjay.readableStreamBody);
+  var data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
+  var data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
 
   setInterval(async function() {
+    downloadBlockBlobResponse_johnjay = await blockBlobClient_johnjay.download(0);
+    downloadBlockBlobResponse_jj = await blockBlobClient_jj.download(0);
+    downloadBlockBlobResponse_ferris = await blockBlobClient_ferris.download(0);
     console.log("generating graphs");
     data_johnjay = await streamToString(downloadBlockBlobResponse_johnjay.readableStreamBody);
     data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
