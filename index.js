@@ -40,11 +40,10 @@ async function main() {
     downloadBlockBlobResponse_johnjay = await blockBlobClient_johnjay.download(0);
     downloadBlockBlobResponse_jj = await blockBlobClient_jj.download(0);
     downloadBlockBlobResponse_ferris = await blockBlobClient_ferris.download(0);
-    console.log("generating graphs");
     data_johnjay = await streamToString(downloadBlockBlobResponse_johnjay.readableStreamBody);
     data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
     data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
-  }, 60*1000);
+  }, 5*60*1000);
 
 
   

@@ -36,7 +36,6 @@ try:
     times = {}
 
     while True:
-        print("updating")
         # download from Azure
         download_file_path = upload_file_path
         with open(download_file_path, "wb") as download_file:
