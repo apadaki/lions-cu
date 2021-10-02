@@ -40,7 +40,7 @@ async function main() {
     data_johnjay = await streamToString(downloadBlockBlobResponse_johnjay.readableStreamBody);
     data_jj = await streamToString(downloadBlockBlobResponse_jj.readableStreamBody);
     data_ferris = await streamToString(downloadBlockBlobResponse_ferris.readableStreamBody);
-  }, 15*60*1000);
+  }, 60*1000);
 
 
   
